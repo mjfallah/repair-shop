@@ -1,6 +1,9 @@
-import { HomeIcon, FileIcon, UserRound } from "lucide-react";
 import Link from "next/link";
-import NavButton from "./navButton";
+
+import { HomeIcon, FileIcon, UserRound } from "lucide-react";
+
+import NavButton from "@/components/navButton";
+import { ModeToggle } from "@/components/modeToggle";
 
 export const Header = () => {
   return (
@@ -19,9 +22,11 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex items-center">
-            <p>Right</p>
+          <NavButton href="/tickets" label="Tickets" icon={FileIcon} />
+          <NavButton href="/customers" label="Customers" icon={UserRound} />
+          <ModeToggle />
         </div>
       </div>
-    </header> 
+    </header>
   );
 };
