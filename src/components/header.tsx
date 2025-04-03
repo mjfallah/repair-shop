@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-import { HomeIcon, FileIcon, UserRound } from "lucide-react";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+
+import { HomeIcon, FileIcon, UserRound, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 import NavButton from "@/components/navButton";
 import { ModeToggle } from "@/components/modeToggle";
@@ -25,6 +28,18 @@ export const Header = () => {
           <NavButton href="/tickets" label="Tickets" icon={FileIcon} />
           <NavButton href="/customers" label="Customers" icon={UserRound} />
           <ModeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="LogOut"
+            title="LogOut"
+            className="rounded-full"
+            asChild
+          >
+            <LogoutLink>
+              <LogOut />
+            </LogoutLink>
+          </Button>
         </div>
       </div>
     </header>
