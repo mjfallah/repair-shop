@@ -5,6 +5,8 @@ import { getTickets } from "@/lib/queries/getTicket";
 
 import * as Sentry from "@sentry/nextjs";
 
+import TicketForm from "@/app/(rs)/tickets/form/ticket-form";
+
 export default async function TicketFormPage({
   searchParams,
 }: {
@@ -48,6 +50,7 @@ export default async function TicketFormPage({
       }
       // return ticket form
       console.log(customer);
+      return <TicketForm customer={customer} />;
     }
     // Edit ticket form
     if (ticketId) {
@@ -65,6 +68,7 @@ export default async function TicketFormPage({
       //return ticket form
       console.log("ticket :", ticket);
       console.log("customer :", customer);
+      return <TicketForm customer={customer} ticket={ticket} />;
     }
   } catch (error) {
     if (error instanceof Error) {
