@@ -2,17 +2,21 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 
 import { InputWithLabel } from "@/components/inputs/input-with-label";
+import { TextAreaWithLabel } from "@/components/inputs/text-area-with-label";
+import { SelectWithLabel } from "@/components/inputs/select-with-label";
 
 import {
   insertCustomerSchema,
   type insertCustomerSchemaType,
-  selectCustomerSchema,
   type selectCustomerSchemaType,
 } from "@/zod-schemas/customer";
+
+import { StatesArray } from "@/constants/states-array";
 
 type Props = {
   customer?: selectCustomerSchemaType;
@@ -76,6 +80,11 @@ export default function CustomerForm({ customer }: Props) {
               fieldTitle="City"
               nameInSchema="city"
             />
+            <SelectWithLabel<insertCustomerSchemaType>
+              fieldTitle="State"
+              nameInSchema="state"
+              data={StatesArray}
+            />
           </div>
           <div className="flex flex-col gap-4 w-full max-w-xs">
             <InputWithLabel<insertCustomerSchemaType>
@@ -89,6 +98,11 @@ export default function CustomerForm({ customer }: Props) {
             <InputWithLabel<insertCustomerSchemaType>
               fieldTitle="Phone"
               nameInSchema="phone"
+            />
+            <TextAreaWithLabel<insertCustomerSchemaType>
+              fieldTitle="Notes"
+              nameInSchema="notes"
+              className="h-40"
             />
             <div className="flex gap-2">
               <Button

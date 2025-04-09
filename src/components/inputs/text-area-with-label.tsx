@@ -1,6 +1,6 @@
 "use client";
 
-import { InputHTMLAttributes } from "react";
+import { TextareaHTMLAttributes } from "react";
 
 import { useFormContext } from "react-hook-form";
 
@@ -11,15 +11,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type Props<S> = {
   fieldTitle: string;
   nameInSchema: keyof S & string;
   className?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export function InputWithLabel<S>({
+export function TextAreaWithLabel<S>({
   fieldTitle,
   nameInSchema,
   className,
@@ -33,14 +33,14 @@ export function InputWithLabel<S>({
       name={nameInSchema}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="text-base" htmlFor={nameInSchema}>
+          <FormLabel className="text-base mb-2" htmlFor={nameInSchema}>
             {fieldTitle}
           </FormLabel>
 
           <FormControl>
-            <Input
+            <Textarea
               id={nameInSchema}
-              className={`w-full max-w-xs disabled:text-blue-500 dark:disabled:text-yellow-300 disabled:opacity-75 ${className}`}
+              className={className}
               {...props}
               {...field}
             />
