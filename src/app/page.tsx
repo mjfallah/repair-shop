@@ -11,7 +11,9 @@ export default function Home() {
             Repair Shop
           </h1>
           <address>
-            No.22 Beyhaghi Street
+            No.22, 16th Eastern Street
+            <br />
+            Beyhaghi Street
             <br />
             Tehran, Iran
           </address>
