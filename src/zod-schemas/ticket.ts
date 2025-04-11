@@ -3,7 +3,7 @@ import { tickets } from "@/db/schema";
 import { z } from "zod";
 
 export const insertTicketSchema = createInsertSchema(tickets, {
-  id: z.union([z.number(), z.literal("New")]),
+  id: z.union([z.number(), z.literal("(New)")]),
   title: (field) => field.min(1, "Title is required"),
   description: (field) => field.min(1, "Description is required"),
   tech: (field) => field.email("Invalid email address"),
