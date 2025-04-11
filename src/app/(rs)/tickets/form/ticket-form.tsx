@@ -57,11 +57,13 @@ export default function TicketForm({
   const {
     execute: executeSave,
     result: saveResult,
-    isExecuting: isSaving,
+    isPending: isSaving,
     reset: resetSaveAction,
   } = useAction(saveTicketAction, {
     onSuccess({ data }) {
-      toast.success(data?.message);
+      if (data?.message) {
+        toast.success(data?.message);
+      }
     },
     onError({ error }) {
       toast.error("Failed to save");
