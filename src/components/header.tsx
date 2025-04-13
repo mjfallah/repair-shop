@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 import NavButton from "@/components/navButton";
 import { ModeToggle } from "@/components/modeToggle";
+import { NavButtonMenu } from "./nav-button-menu";
 
 export const Header = () => {
   return (
@@ -26,7 +27,14 @@ export const Header = () => {
         </div>
         <div className="flex items-center">
           <NavButton href="/tickets" label="Tickets" icon={FileIcon} />
-          <NavButton href="/customers" label="Customers" icon={UserRound} />
+          <NavButtonMenu
+            icon={UserRound}
+            label="Customers Menu"
+            choices={[
+              { title: "Search Customers", href: "/customers" },
+              { title: "New Customer", href: "/customers/form" },
+            ]}
+          />
           <ModeToggle />
           <Button
             variant="ghost"
