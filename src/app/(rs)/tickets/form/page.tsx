@@ -84,7 +84,9 @@ export default async function TicketFormPage({
         const techs = users
           ? users.map((user) => ({ id: user.email!, description: user.email! }))
           : [];
-        return <TicketForm customer={customer} techs={techs} />;
+        return (
+          <TicketForm customer={customer} techs={techs} isManager={isManager} />
+        );
       } else {
         return <TicketForm customer={customer} />;
       }
@@ -112,7 +114,14 @@ export default async function TicketFormPage({
               description: user.email?.toLowerCase() as string,
             }))
           : [];
-        return <TicketForm customer={customer} ticket={ticket} techs={techs} />;
+        return (
+          <TicketForm
+            customer={customer}
+            ticket={ticket}
+            techs={techs}
+            isManager={isManager}
+          />
+        );
       } else {
         const isEditable =
           user.email?.toLowerCase() === ticket.tech?.toLowerCase();
