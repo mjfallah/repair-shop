@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
   description: "Jay's Computer Repair Shop",
   applicationName: "Repair Shop",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
