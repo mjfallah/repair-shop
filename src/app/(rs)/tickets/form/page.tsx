@@ -107,7 +107,10 @@ export default async function TicketFormPage({
         kindeInit(); // Initializes the Kinde Management API
         const { users } = await Users.getUsers();
         const techs = users
-          ? users.map((user) => ({ id: user.email!, description: user.email! }))
+          ? users.map((user) => ({
+              id: user.email?.toLowerCase() as string,
+              description: user.email?.toLowerCase() as string,
+            }))
           : [];
         return <TicketForm customer={customer} ticket={ticket} techs={techs} />;
       } else {
