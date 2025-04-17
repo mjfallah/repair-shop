@@ -70,6 +70,14 @@ export default function TicketTable({ data }: Props) {
     "completed",
   ];
 
+  const columnWidths = {
+    completed: 150,
+    ticketDate: 150,
+    title: 250,
+    tech: 225,
+    email: 225,
+  };
+
   const columnHelper = createColumnHelper<RowType>();
 
   const columns = columnHeadersArray.map((columnName) => {
@@ -90,6 +98,8 @@ export default function TicketTable({ data }: Props) {
       },
       {
         id: columnName,
+        size:
+          columnWidths[columnName as keyof typeof columnWidths] ?? undefined,
         header: ({ column }) => {
           return (
             <Button
@@ -132,7 +142,7 @@ export default function TicketTable({ data }: Props) {
     );
   });
 
-  usePolling(searchParams.get("searchText"), 10000);
+  usePolling(searchParams.get("searchText"), 300000);
 
   const pageIndex = useMemo(() => {
     const page = searchParams.get("page");
@@ -167,7 +177,11 @@ export default function TicketTable({ data }: Props) {
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="bg-secondary p-1">
+                  <TableHead
+                    key={header.id}
+                    style={{ width: header.getSize() }}
+                    className="bg-secondary p-1"
+                  >
                     <div>
                       {header.isPlaceholder
                         ? null
@@ -178,7 +192,12 @@ export default function TicketTable({ data }: Props) {
                     </div>
                     {header.column.getCanFilter() ? (
                       <div className="grid place-content-center">
-                        <Filter column={header.column} />
+                        <Filter
+                          column={header.column}
+                          filteredRows={table
+                            .getFilteredRowModel()
+                            .rows.map((row) => row.getValue(header.column.id))}
+                        />
                       </div>
                     ) : null}
                   </TableHead>
