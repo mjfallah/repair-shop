@@ -3,7 +3,6 @@ import CustomerSearch from "@/app/(rs)/customers/customer-search";
 import { getCustomerSearchResults } from "@/lib/queries/get-customer-search-result";
 
 import CustomerTable from "./customer-table";
-import * as Sentry from "@sentry/nextjs";
 
 export const metadata = {
   title: "Customer Search",
