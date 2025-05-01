@@ -30,7 +30,7 @@ The goal is to replace manual tracking and fragmented communication with a centr
 
 | Category           | Tech                                                                 |
 |--------------------|----------------------------------------------------------------------|
-| **Frontend**       | [Next.js 15](https://nextjs.org), [TypeScript](https://www.typescriptlang.org), [Tailwind CSS](https://tailwindcss.com), [ShadCN/UI](https://ui.shadcn.com), [React Hook Form](https://react-hook-form.com), [Radix UI](https://www.radix-ui.com/) |
+| **Frontend**       | [Next.js 15](https://nextjs.org), [TypeScript](https://www.typescriptlang.org), [Tailwind CSS](https://tailwindcss.com), [ShadCN/UI](https://ui.shadcn.com), [React Hook Form](https://react-hook-form.com), [Radix UI](https://www.radix-ui.com/), [@tanstack/react-table](https://tanstack.com/table) |
 | **Backend**        | Next.js API Routes, [Drizzle ORM](https://orm.drizzle.team), [Zod](https://zod.dev) |
 | **Database**       | [Neon Postgres](https://neon.tech) |
 | **Auth**           | [Kinde Auth](https://kinde.com) |
